@@ -97,6 +97,42 @@ Run through the cells to train and save the CNN model.
 model/drowsiness_model.h5
 ```
 
+# 🔍 Real-Time Drowsiness Detection (Live App)
+
+This project now uses MediaPipe for more accurate eye detection and includes an audio alarm for real-time drowsiness warnings.
+
+## 🛠 Features
+
+-Detects closed or open eyes using a CNN model
+-Uses MediaPipe's Face Mesh for eye tracking (better than Haar Cascades)
+-Plays an alert sound if drowsiness is detected
+-Runs live using webcam
+
+## 📦 Additional Requirements
+
+Install the new dependencies:
+
+```
+pip install mediapipe playsound opencv-python
+```
+Place an alarm sound file `(alarm.mp3)` in the `utils/ directory`:
+
+```
+driver-drowsiness-detection/
+├── utils/
+│   └── alarm.mp3
+```
+
+## 🚀 Running the Live App
+
+From the project root, run:
+
+```
+python main.py
+```
+
+Press `q` to quit the live detection window.
+
 ---
 
 ## 🔜 Next Steps / Future Work
