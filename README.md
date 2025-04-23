@@ -45,7 +45,7 @@ driver-drowsiness-detection/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/driver-drowsiness-detection.git
+git clone https://github.com/SUY18ASH/driver-drowsiness-detection.git
 cd driver-drowsiness-detection
 ```
 
