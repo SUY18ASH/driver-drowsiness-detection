@@ -1,0 +1,16 @@
+venv/
+notebooks/venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.DS_Store
+env/
+**/env/
+*.dll
+*.so
+*.libdataset/
+*.h5
+*.npy
+*.npz
+*.ipynb_checkpoints/
