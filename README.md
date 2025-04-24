@@ -28,7 +28,7 @@ driver-drowsiness-detection/
 │       ├── Open/
 │       └── Closed/
 ├── model/                  # Saved trained model
-│   └── drowsiness_model.h5
+│   └── drowsiness_model.keras
 ├── notebooks/
 │   └── train_model.ipynb   # Training notebook
 ├── utils/                  # Utility scripts (to be added)
@@ -94,7 +94,7 @@ Run through the cells to train and save the CNN model.
 - The trained model will be saved to:
 
 ```
-model/drowsiness_model.h5
+model/drowsiness_model.keras
 ```
 
 # 🔍 Real-Time Drowsiness Detection (Live App)
@@ -104,7 +104,7 @@ This project now uses MediaPipe for more accurate eye detection and includes an 
 ## 🛠 Features
 
 -Detects closed or open eyes using a CNN model
--Uses MediaPipe's Face Mesh for eye tracking (better than Haar Cascades)
+-Uses MediaPipe's Face Mesh for eye tracking
 -Plays an alert sound if drowsiness is detected
 -Runs live using webcam
 
