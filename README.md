@@ -38,7 +38,7 @@ This project implements a real-time driver drowsiness detection system with a we
 
 ## 📁 Project Structure
 
-```
+```bash
 driver-drowsiness-detection/
 ├── static/
 │   ├── css/
@@ -60,7 +60,20 @@ driver-drowsiness-detection/
 │   └── [session recordings]
 ├── data/
 │   └── profiles.json
+├── dataset/
+│   ├── train/
+│   │   ├── Open/
+│   │   └── Closed/
+│   └── test/
+│       ├── Open/
+│       └── Closed/
+├── notebooks/
+│   └── train_model.ipynb
+├── utils/
+│   └── [utility scripts]
+├── split_dataset.py
 ├── app.py
+├── main.py
 ├── requirements.txt
 └── README.md
 ```
@@ -88,11 +101,21 @@ python app.py
 
 The application will be available at `http://localhost:5000`
 
+## 💾 Model Output
+
+- The trained model will be saved to:
+
+```bash
+model/drowsiness_model.keras
+```
+
 ## 💡 Features Detail
 
 ### Real-time Detection
+- Detects closed or open eyes using a CNN model
+- Uses MediaPipe's Face Mesh for eye tracking
+- Plays an alert sound if drowsiness is detected
 - Live webcam feed processing
-- Face and eye tracking using MediaPipe
 - Drowsiness level calculation
 - Configurable detection thresholds
 
@@ -135,7 +158,7 @@ The application will be available at `http://localhost:5000`
 - Configurable data retention
 - Private user profiles
 
-## 🔜 Future Enhancements
+## 🔮 Future Enhancements
 
 - Multiple camera support
 - Advanced analytics dashboard
@@ -160,4 +183,10 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ---
 
 For questions or support, please open an issue in the repository.
+
+## 🔖 Hashtags (for GitHub ReadMe SEO)
+
+```
+#drowsiness-detection #machinelearning #deep-learning #flask #opencv #mediapipe #realtimesystems #computervision #driver-safety #cnnmodel #pythonprojects #webdashboard #aiprojects #tensorflow #keras
+```
 
