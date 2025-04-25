@@ -1,44 +1,82 @@
 # Driver Drowsiness Detection
 
-This project uses deep learning (CNN) to detect whether a driver is drowsy or alert by classifying images of eyes as open or closed. The model is trained on a dataset of eye images and can be integrated with a real-time webcam feed in future stages.
+This project implements a real-time driver drowsiness detection system with a web-based dashboard interface. It uses deep learning (CNN) and MediaPipe to detect driver drowsiness by monitoring eye states and provides real-time alerts through a sophisticated web interface.
 
----
+## 🚀 Features
+
+- Real-time drowsiness detection through webcam
+- Web-based dashboard interface
+- Live status monitoring and analytics
+- Session recording and playback
+- Configurable alert thresholds
+- Dark/Light mode support
+- Real-time data visualization
+- System logs and alerts history
 
 ## 🧠 Tech Stack
 
+### Backend
 - **Language**: Python
-- **Libraries**:
+- **Web Framework**: Flask
+- **ML/CV Libraries**:
   - TensorFlow / Keras
+  - MediaPipe
   - OpenCV
-  - NumPy, Matplotlib
-  - scikit-learn (optional for metrics)
-- **Dataset**: Open Eyes and Closed Eyes images (2,000 each)
+  - NumPy
 
----
+### Frontend
+- **HTML5/CSS3/JavaScript**
+- **Libraries**:
+  - Chart.js (for real-time graphs)
+  - MaterialDesignIcons
+  - TailwindCSS
+
+### ML Model
+- CNN for eye state classification
+- MediaPipe Face Mesh for facial landmark detection
+- Real-time video processing pipeline
 
 ## 📁 Project Structure
 
-```
+```bash
 driver-drowsiness-detection/
-├── dataset/                 # Contains train/test folders after split
+├── static/
+│   ├── css/
+│   │   └── style.css
+│   ├── js/
+│   │   ├── main.js
+│   │   ├── alert-system.js
+│   │   ├── ui-controls.js
+│   │   └── user-settings.js
+│   ├── audio/
+│   │   └── alert.mp3
+│   └── img/
+│       └── alert-icon.png
+├── templates/
+│   └── index.html
+├── model/
+│   └── drowsiness_model.h5
+├── sessions/
+│   └── [session recordings]
+├── data/
+│   └── profiles.json
+├── dataset/
 │   ├── train/
 │   │   ├── Open/
 │   │   └── Closed/
 │   └── test/
 │       ├── Open/
 │       └── Closed/
-├── model/                  # Saved trained model
-│   └── drowsiness_model.keras
 ├── notebooks/
-│   └── train_model.ipynb   # Training notebook
-├── utils/                  # Utility scripts (to be added)
-├── split_dataset.py        # Script to split raw data into train/test
-├── main.py                 # Future file for real-time detection
-├── requirements.txt        # Python dependencies
-└── README.md               # You're here
+│   └── train_model.ipynb
+├── utils/
+│   └── [utility scripts]
+├── split_dataset.py
+├── app.py
+├── main.py
+├── requirements.txt
+└── README.md
 ```
-
----
 
 ## 📦 Setup Instructions
 
@@ -55,102 +93,100 @@ cd driver-drowsiness-detection
 pip install -r requirements.txt
 ```
 
-### 3. Dataset Setup
-
-- Ensure you have a dataset of images structured as:
-
-```
-EyeDataset/
-├── Open/
-│   └── image1.jpg ...
-└── Closed/
-    └── image1.jpg ...
-```
-
-- The dataset used here is from kaggle (link-"https://www.kaggle.com/datasets/prasadvpatil/mrl-dataset")
-- Update the paths in `split_dataset.py` to point to your dataset.
-- Run the script:
+### 3. Run the Application
 
 ```bash
-python split_dataset.py
+python app.py
 ```
 
-This will create the `dataset/train/` and `dataset/test/` directories with properly split images.
-
-### 4. Train the Model
-
-Open the notebook:
-
-```bash
-jupyter notebook notebooks/train_model.ipynb
-```
-
-Run through the cells to train and save the CNN model.
-
----
+The application will be available at `http://localhost:5000`
 
 ## 💾 Model Output
 
 - The trained model will be saved to:
 
-```
+```bash
 model/drowsiness_model.keras
 ```
 
-# 🔍 Real-Time Drowsiness Detection (Live App)
+## 💡 Features Detail
 
-This project now uses MediaPipe for more accurate eye detection and includes an audio alarm for real-time drowsiness warnings.
+### Real-time Detection
+- Detects closed or open eyes using a CNN model
+- Uses MediaPipe's Face Mesh for eye tracking
+- Plays an alert sound if drowsiness is detected
+- Live webcam feed processing
+- Drowsiness level calculation
+- Configurable detection thresholds
 
-## 🛠 Features
+### Dashboard Interface
+- Real-time status monitoring
+- Dynamic charts and statistics
+- System logs display
+- Session recording and playback
+- Dark/Light mode toggle
 
--Detects closed or open eyes using a CNN model
--Uses MediaPipe's Face Mesh for eye tracking
--Plays an alert sound if drowsiness is detected
--Runs live using webcam
+### Alert System
+- Configurable alert thresholds
+- Visual and audio alerts
+- Browser notifications
+- Alert history logging
 
-## 📦 Additional Requirements
+### Session Management
+- Session recording
+- Playback functionality
+- Session statistics
+- Data export capability
 
-Install the new dependencies:
+## ⚙️ Configuration
 
-```
-pip install mediapipe playsound opencv-python
-```
-Place an alarm sound file `(alarm.mp3)` in the `utils/ directory`:
+### Detection Settings
+- Drowsiness threshold adjustment
+- Frame check threshold configuration
+- Alert sensitivity settings
 
-```
-driver-drowsiness-detection/
-├── utils/
-│   └── alarm.mp3
-```
+### Alert Settings
+- Sound alerts toggle
+- Volume control
+- Browser notifications
+- Alert thresholds (Low, Medium, High)
 
-## 🚀 Running the Live App
+## 🔒 Security and Privacy
 
-From the project root, run:
+- Local session storage
+- No cloud dependencies
+- Configurable data retention
+- Private user profiles
 
-```
-python main.py
-```
+## 🔮 Future Enhancements
 
-Press `q` to quit the live detection window.
+- Multiple camera support
+- Advanced analytics dashboard
+- Mobile app integration
+- Cloud backup option
+- AI-powered alert optimization
+- Remote monitoring capabilities
 
----
-
-## 🔜 Next Steps / Future Work
-
-- Real-time eye detection using webcam with OpenCV
-- Use of Mediapipe for better face/eye localization
-- Integration with alert system (audio/visual)
-- Deploy using Flask or Streamlit for demo
-
----
-
-## 👤 Author
+## 👤 Authors
 
 - Suyash Chouksey
-
----
+- Srajan Soni
 
 ## 📜 License
 
-This project is open-source and free to use for academic/non-commercial purposes.
+This project is open-source and available under the MIT License.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+---
+
+For questions or support, please open an issue in the repository.
+
+## 🔖 Hashtags (for GitHub ReadMe SEO)
+
+```
+#drowsiness-detection #machinelearning #deep-learning #flask #opencv #mediapipe #realtimesystems #computervision #driver-safety #cnnmodel #pythonprojects #webdashboard #aiprojects #tensorflow #keras
+```
 
